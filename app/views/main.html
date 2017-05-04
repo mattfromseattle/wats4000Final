@@ -1,5 +1,17 @@
+
 <div ng-app class="jumbotron" ng-controller="MainCtrl">
-  <h1>Headlines from {{current.source}}</h1>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    News Source
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Ars Technica</a>
+    <a class="dropdown-item" href="#">Buzzfeed</a>
+    <a class="dropdown-item" href="#">Newsweek</a>
+  </div>
+</div>
+
+  <h3>Headlines from <h1>{{current.source}}</h1></h3>
   <p class="lead">
     <div ng-init="source=''">
       <p>
@@ -32,7 +44,7 @@
       </dl>
       <dl>
         <h4>{{current.articles[3].title}}</h4>
-        <img src="{{current.articles[1].urlToImage}}" alt="">
+        <img src="{{current.articles[3].urlToImage}}" alt="">
         <p>By: {{current.articles[3].author}}</p>
         <p>Publish Date: {{current.articles[3].publishedAt}}</p>
         <h3>{{current.articles[3].description}}</h3>
@@ -42,7 +54,7 @@
         <h4>{{current.articles[4].title}}</h4>
         <img src="{{current.articles[4].urlToImage}}" alt="">
         <p>By: {{current.articles[4].author}}</p>
-        <p>Publish Date: {{current.articles[4].publishedAt}}</p>
+        <p>{{current.articles[4].publishedAt}}</p>
         <h3>{{current.articles[4].description}}</h3>
         <a href="{{current.articles[4].url}}" target="_blank">Full Article</a>
       </dl>
