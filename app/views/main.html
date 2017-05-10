@@ -1,23 +1,19 @@
-
 <div ng-app class="jumbotron" ng-controller="MainCtrl">
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    News Source
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Ars Technica</a>
-    <a class="dropdown-item" href="#">Buzzfeed</a>
-    <a class="dropdown-item" href="#">Newsweek</a>
-  </div>
-</div>
 
-  <h3>Headlines from <h1>{{current.source}}</h1></h3>
+  <h3>Headlines from
+    <h1>{{current.source}}</h1>
+      <hr>
+  </h3>
+
   <p class="lead">
-    <div ng-init="source=''">
-      <p>
-        <button class="btn btn-lg btn-primary" ng-click="refreshCurrent()">Get Current Headlines</button>
-      </p>
-      <h3>{{current.articles.title}}</h3>
+    <div ng-repeat="article in current.articles">
+      <h4>{{article.title}}</h4>
+      <img src="{{article.urlToImage}}">
+      <h3>By: {{article.author}}</h3>
+      <h5>Originally Published: {{article.publishedAt}}</h5>
+      <p>{{article.description}}</p>
+      <a href="{{article.url}}" target="_blank">Full Article</a>
+      <hr width="80%" color="black";>
     </div>
   </p>
 </div>
