@@ -15,7 +15,7 @@ angular.module('wats4000FinalApp')
       query: {
         method: 'GET',
         params: {
-          source: 'ars-technica',
+          source: 'reuters',
           sortBy: 'latest',
           apiKey: '2710c84ddcd04d2dbb72e814cb443962',
         },
