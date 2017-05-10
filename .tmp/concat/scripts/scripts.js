@@ -87,13 +87,28 @@ angular.module('wats4000FinalApp')
   .factory('current', ["$resource", function ($resource) {
     // Service logic
     // ...
-    return $resource('https://newsapi.org/v1/articles?source=:source&sortBy=:sortBy&apiKey=:apiKey', {}, {
+    return $resource('https://newsapi.org/v1/articles?source=:source&sortBy=:sortBy&apiKey=:apiKey&', {}, {
       query: {
         method: 'GET',
         params: {
-          source: 'reuters',
-          sortBy: 'latest',
+          source: 'bloomberg',
           apiKey: '2710c84ddcd04d2dbb72e814cb443962',
+        },
+        isArray: false
+      }
+    });
+  }]);
+
+  angular.module('wats4000FinalApp')
+  .factory('source', ["$resource", function ($resource) {
+    // Service logic
+    // ...
+    return $resource('https://newsapi.org/v1/sources?sortBy=:sortBy&apiKey=:apiKey&', {}, {
+      query: {
+        method: 'GET',
+        params: {
+          apiKey: '2710c84ddcd04d2dbb72e814cb443962',
+          sortBy: 'latest'
         },
         isArray: false
       }
@@ -108,7 +123,7 @@ angular.module('wats4000FinalApp').run(['$templateCache', function($templateCach
 
 
   $templateCache.put('views/main.html',
-    "<div ng-app class=\"jumbotron\" ng-controller=\"MainCtrl\"> <h1>The latest headlines from {{current.source}} <hr> </h1> <p class=\"lead\"> <div ng-init=\"limit = 5\"> <div ng-repeat=\"article in current.articles | limitTo: limit as results\"> <!-- Calls results from API and allows for parsing. --> <h4>{{article.title}}</h4> <img src=\"{{article.urlToImage}}\"> <h3>By: {{article.author}}</h3> <h5>Originally Published: {{article.publishedAt}}</h5> <p>{{article.description}}</p> <a href=\"{{article.url}}\" target=\"_blank\">Full Article</a> <hr> </div> </div></p> </div> <button ng-hide=\"results.length === items.length\" ng-click=\"limit = limit +5\">show more...</button> "
+    "<div class=\"container\" id=\"newsSources\"> <h2>Select a News Source</h2> <select ng-model=\"selectSource\" ng-options=\"x.source for x in sources\"></select> </div> <br> <div ng-app class=\"jumbotron\" ng-controller=\"MainCtrl\"> <h1>The latest headlines from {{current.source}} <hr> </h1> <p class=\"lead\"> <div ng-init=\"limit = 5\"> <div ng-repeat=\"article in current.articles | limitTo: limit as results\"> <!-- Calls results from API and allows for parsing. --> <h4>{{article.title}}</h4> <img src=\"{{article.urlToImage}}\"> <h3>By: {{article.author}}</h3> <h5>Originally Published: {{article.publishedAt}}</h5> <p>{{article.description}}</p> <a href=\"{{article.url}}\" target=\"_blank\">Full Article</a> <hr> </div> </div></p> </div> <button class=\"showMore\" ng-hide=\"results.length === items.length\" ng-click=\"limit = limit +5\">Show More...</button> "
   );
 
 }]);
