@@ -1,19 +1,19 @@
 <div ng-app class="jumbotron" ng-controller="MainCtrl">
 
-  <h3>Headlines from
-    <h1>{{current.source}}</h1>
-      <hr>
-  </h3>
+  <h1>The latest headlines from {{current.source}}
+    <hr>
+  </h1>
 
   <p class="lead">
     <div ng-repeat="article in current.articles">
+      <!-- Calls results from API and allows for parsing. -->
       <h4>{{article.title}}</h4>
       <img src="{{article.urlToImage}}">
       <h3>By: {{article.author}}</h3>
       <h5>Originally Published: {{article.publishedAt}}</h5>
       <p>{{article.description}}</p>
       <a href="{{article.url}}" target="_blank">Full Article</a>
-      <hr width="80%" color="black";>
+      <hr>
     </div>
   </p>
 </div>

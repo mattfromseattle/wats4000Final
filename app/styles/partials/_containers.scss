@@ -1,7 +1,7 @@
 @import "variables";
 @import "fonts";
 body {
-    background-color: #fefdfb;
+    background-color: $black;
 }
 
 .panel {
@@ -10,6 +10,7 @@ body {
 }
 
 .jumbotron {
+    background-color: $grey;
     width: 100%;
     img {
         width: 100%;
@@ -21,14 +22,4 @@ body {
     a {
         padding: 25px;
     }
-}
-
-hr { 
-    display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-left: auto;
-    margin-right: auto;
-    border-style: inset;
-    border-width: 1px;
 }

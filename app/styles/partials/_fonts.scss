@@ -16,11 +16,22 @@ h2 {
 //headlines
 h4 {
     font-family: times, Times New Roman, times-roman, georgia, serif;
-    color: #444;
+    color: $orange;
     margin: 0;
     padding: 0px 0px 6px 0px;
     font-size: 51px;
     line-height: 44px;
     letter-spacing: -1px;
     font-weight: bold;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+    color: $black;
 }
