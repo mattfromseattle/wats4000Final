@@ -46,16 +46,10 @@ angular
  * Controller of the wats4000FinalApp
  */
 angular.module('wats4000FinalApp')
-  .controller('MainCtrl', ["$scope", "current", function ($scope, current) {
+  .controller('MainCtrl', ["$scope", "current", "newsSources", function ($scope, current,newsSources) {
     $scope.current = current.query();
-
-    $scope.refreshCurrent = function () {
-      $scope.current = current.query({
-        source: $scope.source
-      });
-    };
+    $scope.newsSources = newsSources.query();
   }]);
-
 'use strict';
 
 /**
@@ -85,35 +79,40 @@ angular.module('wats4000FinalApp')
  */
 angular.module('wats4000FinalApp')
   .factory('current', ["$resource", function ($resource) {
-    // Service logic
-    // ...
     return $resource('https://newsapi.org/v1/articles?source=:source&sortBy=:sortBy&apiKey=:apiKey&', {}, {
       query: {
         method: 'GET',
         params: {
-          source: 'bloomberg',
+          source: 'ign',
           apiKey: '2710c84ddcd04d2dbb72e814cb443962',
+        },
+        isArray: false
+      }
+    });
+  }]);
+'use strict';
+
+/**
+ * @ngdoc service
+ * @name wats4000FinalApp.newsSources
+ * @description
+ * # newsSources
+ * Factory in the wats4000FinalApp.
+ */
+angular.module('wats4000FinalApp')
+  .factory('newsSources', ["$resource", function ($resource) {
+    return $resource('https://newsapi.org/v1/sources?language=:language', {}, {
+      query: {
+        method: 'GET',
+        params: {
+          language: 'en',
         },
         isArray: false
       }
     });
   }]);
 
-  angular.module('wats4000FinalApp')
-  .factory('source', ["$resource", function ($resource) {
-    // Service logic
-    // ...
-    return $resource('https://newsapi.org/v1/sources?sortBy=:sortBy&apiKey=:apiKey&', {}, {
-      query: {
-        method: 'GET',
-        params: {
-          apiKey: '2710c84ddcd04d2dbb72e814cb443962',
-          sortBy: 'latest'
-        },
-        isArray: false
-      }
-    });
-  }]);
+  console.log("Hello")
 angular.module('wats4000FinalApp').run(['$templateCache', function($templateCache) {
   'use strict';
 
@@ -123,7 +122,16 @@ angular.module('wats4000FinalApp').run(['$templateCache', function($templateCach
 
 
   $templateCache.put('views/main.html',
-    "<div class=\"container\" id=\"newsSources\"> <h2>Select a News Source</h2> <select ng-model=\"selectSource\" ng-options=\"x.source for x in sources\"></select> </div> <br> <div ng-app class=\"jumbotron\" ng-controller=\"MainCtrl\"> <h1>The latest headlines from {{current.source}} <hr> </h1> <p class=\"lead\"> <div ng-init=\"limit = 5\"> <div ng-repeat=\"article in current.articles | limitTo: limit as results\"> <!-- Calls results from API and allows for parsing. --> <h4>{{article.title}}</h4> <img src=\"{{article.urlToImage}}\"> <h3>By: {{article.author}}</h3> <h5>Originally Published: {{article.publishedAt}}</h5> <p>{{article.description}}</p> <a href=\"{{article.url}}\" target=\"_blank\">Full Article</a> <hr> </div> </div></p> </div> <button class=\"showMore\" ng-hide=\"results.length === items.length\" ng-click=\"limit = limit +5\">Show More...</button> "
+    "<div class=\"dropdown\"> <button class=\"btn btn-default dropdown-toggle\" type=\"button\" id=\"dropdownMenu1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"true\"> Dropdown <span class=\"caret\"></span> </button> <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu1\"> <div ng-repeat=\"newsSources in newsSources.sources\"> <li><a href=\"#\">{{newsSources.name}}</a></li> </div> </ul> </div> <div ng-app class=\"jumbotron\" ng-controller=\"MainCtrl\"> <h1>The latest headlines from <hr> </h1> <p class=\"lead\"> <div ng-init=\"limit = 5\"> <div ng-repeat=\"article in current.articles | limitTo: limit as results\"> <!-- Calls results from API and allows for parsing. --> <h4>{{article.title}}</h4> <img src=\"{{article.urlToImage}}\"> <h3>By: {{article.author}}</h3> <h5>Originally Published: {{article.publishedAt}}</h5> <p>{{article.description}}</p> <a href=\"{{article.url}}\" target=\"_blank\">Full Article</a> <hr> </div> </div></p> </div> <button class=\"showMore\" ng-hide=\"results.length === items.length\" ng-click=\"limit = limit +5\">Show More...</button>  <!-- <div ng-app class=\"jumbotron\" ng-controller=\"MainCtrl\">\n" +
+    "  <p class=\"lead\">\n" +
+    "    <div ng-init=\"limit = 5\">\n" +
+    "      <div ng-repeat=\"newsSources in newsSources.sources\">\n" +
+    "        <!-- Calls results from API and allows for parsing. --> <!-- <h4>Sources: {{newsSources.name}}</h4>\n" +
+    "        <hr>\n" +
+    "      </div>\n" +
+    "  </p>\n" +
+    "  </div>\n" +
+    "</div> -->"
   );
 
 }]);

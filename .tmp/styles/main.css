@@ -5749,7 +5749,8 @@ h4 {
   font-size: 51px;
   line-height: 44px;
   letter-spacing: -1px;
-  font-weight: bold; }
+  font-weight: bold;
+  text-shadow: #1d2120 0 4px; }
 
 hr {
   display: block;
@@ -5781,7 +5782,8 @@ h4 {
   font-size: 51px;
   line-height: 44px;
   letter-spacing: -1px;
-  font-weight: bold; }
+  font-weight: bold;
+  text-shadow: #1d2120 0 4px; }
 
 hr {
   display: block;
@@ -5804,7 +5806,11 @@ body {
   background-color: #5a5c51;
   width: 100%; }
   .jumbotron img {
-    width: 100%; }
+    width: 100%;
+    border-style: solid;
+    border-color: #FFFFFF;
+    border-width: 2px;
+    box-shadow: 10px 10px 5px #bcd5d1; }
 
 .dropdown {
   position: absolute; }
