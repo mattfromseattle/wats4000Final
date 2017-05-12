@@ -19,5 +19,3 @@ angular.module('wats4000FinalApp')
       }
     });
   });
-
-  console.log("Hello")
