@@ -8,12 +8,7 @@
  * Controller of the wats4000FinalApp
  */
 angular.module('wats4000FinalApp')
-  .controller('MainCtrl', function ($scope, current) {
+  .controller('MainCtrl', function ($scope, current,newsSources) {
     $scope.current = current.query();
-
-    $scope.refreshCurrent = function () {
-      $scope.current = current.query({
-        source: $scope.source
-      });
-    };
+    $scope.newsSources = newsSources.query();
   });
