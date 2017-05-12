@@ -5731,7 +5731,7 @@ button.close {
 
 html,
 body,
-p {
+p, a {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   color: #1d2120; }
@@ -5764,7 +5764,7 @@ hr {
 
 html,
 body,
-p {
+p, a {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   color: #1d2120; }
@@ -5847,6 +5847,9 @@ body {
 .showMore:active {
   color: #000;
   border-color: #444; }
+
+.dropdown-menu {
+  width: 200px; }
 
 .browsehappy {
   margin: 0.2em 0;
