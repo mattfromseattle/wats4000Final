@@ -1,14 +1,14 @@
 @import "variables";
 html,
 body,
-p, a {
-    font-family: 'Open Sans', sans-serif;
+p, {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 14px;
     color: $black;
 }
 
 h2 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 32px;
     color: $black;
 }

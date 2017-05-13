@@ -8,7 +8,12 @@
  * Controller of the wats4000FinalApp
  */
 angular.module('wats4000FinalApp')
-  .controller('MainCtrl', function ($scope, current,newsSources) {
-    $scope.current = current.query();
+  .controller('MainCtrl', function ($scope, current, newsSources) {
     $scope.newsSources = newsSources.query();
+    $scope.selectedSource = function(source) {
+      console.log(source.id);
+      $scope.current = current.query({
+        source: source.id
+      });
+    };
   });
