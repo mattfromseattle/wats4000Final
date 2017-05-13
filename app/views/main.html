@@ -21,7 +21,7 @@
     <hr>
   </h1>
   <p class="lead">
-    <div ng-init="limit = 10">
+    <div ng-init="limit = 3">
       <div ng-repeat="article in current.articles | limitTo: limit as results">
         <!-- Calls results from API and allows for parsing. -->
         <h4>{{article.title}}</h4>
@@ -32,7 +32,7 @@
         <a href="{{article.url}}" target="_blank">Full Article</a>
         <hr>
       </div>
-      <button class="showMore" ng-click="limit = limit +10">Show More...</button>
+      <button class="showMore" ng-click="limit = limit +2">Show More...</button>
   </p>
   </div>
 </div>
