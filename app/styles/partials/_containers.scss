@@ -1,11 +1,6 @@
 @import "variables";
 @import "fonts";
 
-.navbar-header {
-    background-image: url("/images/Wikinews-breaking-news-2.svg.png");
-    background-repeat: no-repeat;
-}
-
 body {
     background-color: $black;
 }
@@ -32,6 +27,16 @@ body {
     a {
         padding: 25px;
     }
+}
+
+.span4 {
+    color: $blue;
+    background-color: $grey;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    right: 60px;
+    text-align: center;
 }
 
 #newsSources {

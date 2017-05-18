@@ -1,0 +1,8 @@
+div[ng-repeat].ng-enter {
+    -webkit-animation: fadeIn 3s;
+    animation: fadeIn 3s;
+}
+div[ng-repeat].ng-leave {
+    -webkit-animation: fadeOut 3s;
+    animation: fadeOut 3s;
+}
