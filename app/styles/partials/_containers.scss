@@ -1,8 +1,8 @@
 @import "variables";
 @import "fonts";
 
-body {
-    background-color: $black;
+body, .navbar-default {
+    background-color: $white;
 }
 
 .panel {
@@ -11,7 +11,7 @@ body {
 }
 
 .jumbotron {
-    background-color: $grey;
+    background-color: $white;
     width: 100%;
 
     img {
@@ -20,6 +20,10 @@ body {
         border-color: $white;
         border-width: 2px;
         box-shadow: 10px 10px 5px $blue;
+    }
+
+    p {
+        font-size: 24px;
     }
 }
 
@@ -32,8 +36,8 @@ body {
 }
 
 .span4 {
-    color: $blue;
-    background-color: $grey;
+    color: $black;
+    background-color: $white;
     position: absolute;
     width: 200px;
     height: 200px;
