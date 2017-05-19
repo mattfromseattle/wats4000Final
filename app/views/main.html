@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!-- Dropdown menu displays list of available news sources for the user to choose from -->
 <div class="dropdown" id="newsSourcesDropDown">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -14,6 +15,7 @@
     </ul>
 </div>
 
+<!-- Container to track user Favorited articles -->
 <div class="box" id="favoritedArticles">
     <div class="row">
         <div class="span4">
@@ -33,10 +35,59 @@
                 <!-- Calls results from API and allows for parsing. -->
                 <h4>{{article.title}}</h4>
                 <img src="{{article.urlToImage}}">
+                <!-- I got these buttons from simplesharebuttons.com -->
+                <div id="share-buttons">
+                    <!-- Twitter -->
+                    <a href="https://twitter.com/share?url={{article.url}}&amp;text={{article.title}}" target="_blank">
+                    <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+                </a>
+
+                    <!-- Facebook -->
+                    <a href="http://www.facebook.com/sharer.php?u={{article.url}}" target="_blank">
+                <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+            </a>
+
+                    <!-- Google+ -->
+                    <a href="https://plus.google.com/share?url={{article.url}}" target="_blank">
+            <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
+        </a>
+
+                    <!-- Digg -->
+                    <a href="http://www.digg.com/submit?url={{article.url}}" target="_blank">
+                    <img src="https://simplesharebuttons.com/images/somacro/diggit.png" alt="Digg" />
+                </a>
+
+                    <!-- Email -->
+                    <a href="mailto:?Subject={{article.title}}&amp;Body={{article.url}}">
+                    <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+                </a>
+
+                    <!-- LinkedIn -->
+                    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{article.url}}" target="_blank">
+                    <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+                </a>
+
+
+                    <!-- Reddit -->
+                    <a href="http://reddit.com/submit?url={{article.url}}&amp;title={{article.title}}" target="_blank">
+                    <img src="https://simplesharebuttons.com/images/somacro/reddit.png" alt="Reddit" />
+                </a>
+
+                    <!-- StumbleUpon-->
+                    <a href="http://www.stumbleupon.com/submit?url={{article.url}}&amp;title={{article.title}}" target="_blank">
+                    <img src="https://simplesharebuttons.com/images/somacro/stumbleupon.png" alt="StumbleUpon" />
+                </a>
+
+                    <!-- Tumblr-->
+                    <a href="http://www.tumblr.com/share/link?url={{article.url}}&amp;title={{article.title}}" target="_blank">
+                    <img src="https://simplesharebuttons.com/images/somacro/tumblr.png" alt="Tumblr" />
+                </a>
+
+                </div>
                 <h3>By: {{article.author}}</h3>
                 <h5>Originally Published: {{article.publishedAt}}</h5>
                 <p>{{article.description}}</p>
-                <button ng-click="markAs(!isFavorite)"  class="glyphicon" ng-class="{'glyphicon-heart' : isFavorite , 'glyphicon-heart-empty' : !isFavorite }"></button>
+                <button ng-click="markAs(!isFavorite)" class="glyphicon" ng-class="{'glyphicon-heart' : isFavorite , 'glyphicon-heart-empty' : !isFavorite }"></button>
                 <h3><a href="{{article.url}}" target="_blank">Full Article</a></h3>
                 <hr>
             </div>
