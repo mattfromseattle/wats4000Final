@@ -1,9 +1,16 @@
 div[ng-repeat].ng-enter {
-    -webkit-animation: fadeIn 3s;
-    animation: fadeIn 3s;
+    -webkit-animation: zoomIn 3s;
+    animation: zoomIn 3s;
 }
 
-div[ng-repeat].ng-leave {
-    -webkit-animation: fadeOut 3s;
-    animation: fadeOut 3s;
+.my-messages {
+  transition:1s linear all;
 }
+.my-messages.ng-active {
+  // messages are visible
+}
+.my-messages.ng-inactive {
+  // messages are hidden
+}
+
+.some-message.ng-enter {}

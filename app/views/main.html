@@ -15,6 +15,10 @@
     </ul>
 </div>
 
+<div ng-messages="myMessages" class="my-messages" role="alert">
+  <div ng-message="alert" class="some-message">You have selected the source {{newsSource.name}}</div>
+</div>
+
 <!-- Container to track user Favorited articles -->
 <div class="box" id="favoritedArticles">
     <div class="row">
