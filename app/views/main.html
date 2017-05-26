@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+
+<div class="container">
+  <h4>Favorite Articles</h4>
+  <ul class="saved-article-list">
+    <li ng-repeat="article in storage.savedArticle">
+     <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><a ng-href="{{article.id}}" target="_blank" class="btn btn-lg btn-primary">{{article.name}}</a>
+    </li>
+  </ul>
+</div>
+
 <!-- Dropdown menu displays list of available news sources for the user to choose from -->
 <div class="dropdown" id="newsSourcesDropDown">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -15,19 +25,6 @@
     </ul>
 </div>
 
-<div ng-messages="myMessages" class="my-messages" role="alert">
-  <div ng-message="alert" class="some-message">You have selected the source {{newsSource.name}}</div>
-</div>
-
-<!-- Container to track user Favorited articles -->
-<div class="box" id="favoritedArticles">
-    <div class="row">
-        <div class="span4">
-            <h3>Favorites</h3>
-        </div>
-    </div>
-</div>
-
 <!-- Article content including title, image, author, date published, and article summary -->
 <div ng-app class="jumbotron" ng-controller="MainCtrl">
     <h1>The latest headlines from {{current.source}}
@@ -42,7 +39,7 @@
                 <h3>By: {{article.author}}</h3>
                 <h5>Originally Published: {{article.publishedAt}}</h5>
                 <p>{{article.description}}</p>
-                <button ng-click="markAs(!isFavorite)" class="glyphicon" ng-class="{'glyphicon-heart' : isFavorite , 'glyphicon-heart-empty' : !isFavorite }"></button>
+                <button ng-click="saveArticle(article)" class="glyphicon" ng-class="{'glyphicon-heart' : isFavorite , 'glyphicon-heart-empty' : !isFavorite }"></button>
                 <!-- I got these buttons from simplesharebuttons.com -->
                 <div id="share-buttons">
                     <!-- Twitter -->
@@ -96,4 +93,16 @@
             <button class="showMore" ng-click="limit = limit +2">Show More...</button>
     </p>
     </div>
+</div>
+<!-- <p>Current Source:</p>
+<p>{{storage}}</p>
+<p>Article Saved:</p>
+<p>{{articleSaved}}</p> -->
+<div ng-messages="savedArticle">
+    <p class="article-saved-alert bg-success text-success" ng-message="success">
+        {{article.name}} has been saved to your list of favorites.
+    </p>
+    <p class="article-saved-alert bg-warning text-warning" ng-message="duplicate">
+        {{article.name}} has already been saved to your list of favorites.
+    </p>
 </div>

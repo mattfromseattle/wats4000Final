@@ -1,7 +1,7 @@
 @import "variables";
 @import "fonts";
-
-body, .navbar-default {
+body,
+.navbar-default {
     background-color: $white;
 }
 
@@ -13,7 +13,6 @@ body, .navbar-default {
 .jumbotron {
     background-color: $white;
     width: 100%;
-
     img {
         width: 100%;
         border-style: solid;
@@ -21,7 +20,6 @@ body, .navbar-default {
         border-width: 2px;
         box-shadow: 10px 10px 5px $blue;
     }
-
     p {
         font-size: 24px;
     }
@@ -29,7 +27,6 @@ body, .navbar-default {
 
 .dropdown {
     position: absolute;
-
     a {
         padding: 25px;
     }
@@ -98,7 +95,7 @@ body, .navbar-default {
     position: relative;
 }
 
-.dropdown-submenu > .dropdown-menu {
+.dropdown-submenu>.dropdown-menu {
     top: 0;
     left: 100%;
     margin-top: -6px;
@@ -108,11 +105,11 @@ body, .navbar-default {
     border-radius: 0 6px 6px 6px;
 }
 
-.dropdown-submenu:hover > .dropdown-menu {
+.dropdown-submenu:hover>.dropdown-menu {
     display: block;
 }
 
-.dropdown-submenu > a:after {
+.dropdown-submenu>a:after {
     display: block;
     content: " ";
     float: right;
@@ -126,7 +123,7 @@ body, .navbar-default {
     margin-right: -10px;
 }
 
-.dropdown-submenu:hover > a:after {
+.dropdown-submenu:hover>a:after {
     border-left-color: #ffffff;
 }
 
@@ -134,7 +131,7 @@ body, .navbar-default {
     float: none;
 }
 
-.dropdown-submenu.pull-left > .dropdown-menu {
+.dropdown-submenu.pull-left>.dropdown-menu {
     left: -100%;
     margin-left: 10px;
     -webkit-border-radius: 6px 0 6px 6px;
@@ -148,4 +145,29 @@ body, .navbar-default {
     border: 0;
     box-shadow: 0 0 0;
     display: inline;
+}
+
+ul.saved-article-list {
+    list-style: none;
+    
+    a.btn-primary {
+        width: auto;
+        height: 40px;
+        margin: 1px;
+        background-color: $white;
+        color: $black;
+        border-style: none;
+    }
+
+    a.ng-binding {
+        width: 80%;
+    }
+
+    .btn-primary {
+        width: 50%;
+    }
+}
+
+.container.ng-scope {
+    width: 60%;
 }
