@@ -42,5 +42,10 @@
   },
   "scripts": {
     "test": "karma start test/karma.conf.js"
+  },
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.26",
+    "bootstrap": "^4.0.0-alpha.6",
+    "font-awesome": "^4.7.0"
   }
 }
