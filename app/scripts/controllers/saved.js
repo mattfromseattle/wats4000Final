@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name wats4000FinalApp.controller:FavoritesCtrl
+ * @name wats4000FinalApp.controller:SavedCtrl
  * @description
- * # FavoritesCtrl
+ * # SavedCtrl
  * Controller of the wats4000FinalApp
  */
 angular.module('wats4000FinalApp')
-  .controller('FavoritesCtrl', function () {
+  .controller('SavedCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

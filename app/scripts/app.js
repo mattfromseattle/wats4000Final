@@ -32,10 +32,10 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .when('/favorites', {
-        templateUrl: 'views/favorites.html',
-        controller: 'FavoritesCtrl',
-        controllerAs: 'favorites'
+      .when('/saved', {
+        templateUrl: 'views/saved.html',
+        controller: 'MainCtrl',
+        controllerAs: 'saved'
       })
       .otherwise({
         redirectTo: '/'
