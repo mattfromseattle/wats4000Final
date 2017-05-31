@@ -38,6 +38,6 @@ angular
         controllerAs: 'saved'
       })
       .otherwise({
-        redirectTo: '#!/'
+        redirectTo: '/'
       });
   });
