@@ -14,3 +14,9 @@ div[ng-repeat].ng-enter {
 }
 
 .some-message.ng-enter {}
+
+
+div[ng-view].ng-enter {
+    -webkit-animation: fadeIn 3s;
+    animation: fadeIn 3s;
+}

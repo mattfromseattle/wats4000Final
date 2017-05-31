@@ -1,9 +1,9 @@
-<div class="container">
+<div class="jumbotron">
     <h4>Favorite Articles</h4>
     <ul class="saved-article-list">
         <li ng-repeat="article in storage.savedArticle">
-            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><a ng-href="{{article.id}}" target="_blank"
-                class="btn btn-lg btn-primary">{{article.name}}</a>
+            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+            <a ng-href="{{article.id}}" target="_blank">{{article.name}}</a>
         </li>
     </ul>
 </div>

@@ -149,6 +149,8 @@ body,
 
 ul.saved-article-list {
     list-style: none;
+    display: inline;
+    text-overflow: hidden;
     
     a.btn-primary {
         width: auto;
@@ -172,3 +174,6 @@ ul.saved-article-list {
     width: 80%;
 }
 
+a.ng-binding {
+    font-size: 24px;
+}

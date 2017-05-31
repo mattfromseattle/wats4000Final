@@ -23,7 +23,7 @@ angular.module('wats4000FinalApp')
         $scope.saveArticle = function (article) {
             var articleData = {
                 'name': article.title,
-                'id': article.url
+                'id': article.url,
             };
             if (!$localStorage.savedArticle) {
                 $localStorage.savedArticle = [articleData];
