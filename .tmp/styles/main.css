@@ -5961,6 +5961,9 @@ ul.saved-article-list {
 a.ng-binding {
   font-size: 24px; }
 
+div[ng-repeat].ng-enter {
+  animation: zoomIn 3s; }
+
 .my-messages {
   transition: 1s linear all; }
 
