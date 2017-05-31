@@ -1,3 +1,8 @@
+div[ng-repeat].ng-enter {
+    -webkit-animation: zoomIn 3s;
+    animation: zoomIn 3s;
+}
+
 .my-messages {
   transition:1s linear all;
 }
